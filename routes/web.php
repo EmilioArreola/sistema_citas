@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UsuarioController;
@@ -37,12 +38,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RolController::class);
     Route::resource('usuarios', UsuarioController::class);
+
     Route::resource('citas', CitaController::class);
     Route::resource('clientes', ClienteController::class);
-    Route::resource('direccionClientes', DireccionClienteController::class);
+    Route::resource('direccion_clientes', DireccionClienteController::class);
     Route::resource('direcciones', DireccionController::class);
-    Route::resource('direccionUsuarios', DireccionUsuarioController::class);
-    Route::resource('grupos', HistorialClinicoController::class);
+    Route::resource('direccion_usuarios', DireccionUsuarioController::class);
+    Route::resource('historial_clinicos', HistorialClinicoController::class);
     Route::resource('mascotas', MascotaController::class);
     Route::resource('productos', ProductoController::class);
 });
